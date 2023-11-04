@@ -9,9 +9,10 @@
     "lint": "next lint"
   },
   "dependencies": {
-    "react": "latest",
+    "next": "latest",
+    "react": "^18.2.0",
     "react-dom": "latest",
-    "next": "latest"
+    "react-glider": "^4.0.2"
   },
   "devDependencies": {
     "autoprefixer": "latest",
