@@ -87,6 +87,27 @@ const Resume = () => {
 				<h3 className="text-2xl font-bold mt-4 mb-2">EXPERIENCE</h3>
 				<div className="mb-4">
 					<div className="flex justify-between">
+						<p className="font-medium">DevTown</p>
+						<p> Remote</p>
+					</div>
+					<div className="flex justify-between">
+						<p>Full Stack web Developer Intern</p>
+						<p> Nov 2023 - Aug 2024</p>
+					</div>
+					<ul className="list-disc list-inside ml-8 mb-2">
+						<li>
+							Implemented secure Gmail-based magic link authentication for Devtown, enhancing user login experience and account security. With 16.6k users benefiting from these services.
+						</li>
+						<li>
+							Streamlined one-time certificate upgrades, reducing user mistakes and assuring data correctness.
+						</li>
+						<li>
+							Developed a code compiler for multiple languages, leveraging lambda functions for cost minimization..
+						</li>
+					</ul>
+				</div>
+				<div className="mb-4">
+					<div className="flex justify-between">
 						<p className="font-medium">Genci</p>
 						<p> Remote</p>
 					</div>
@@ -109,29 +130,7 @@ const Resume = () => {
 						</li>
 					</ul>
 				</div>
-				<div className="mb-4">
-					<div className="flex justify-between">
-						<p className="font-medium">CodeStrike</p>
-						<p> Remote</p>
-					</div>
-					<div className="flex justify-between">
-						<p>Software Developer Intern</p>
-						<p> Nov 2022 - Feb 2023</p>
-					</div>
-					<ul className="list-disc list-inside ml-8 mb-2">
-						<li>
-							Created the user interface for the profile page, prioritizing an
-							improved user experience.
-						</li>
-						<li>
-							Assisted in testing, ensuring code quality and functionality.
-						</li>
-						<li>
-							Acquired proficiency in various technologies, including Next.js,
-							TypeScript, Material-UI, Chart.js, and Tailwind CSS.
-						</li>
-					</ul>
-				</div>
+
 				<h3 className="text-2xl font-bold mt-4 mb-2">PROJECTS</h3>
 				<div className="mb-4">
 					<div className="flex justify-between">
