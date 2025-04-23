@@ -1,4 +1,3 @@
-// pages/_app.js
 import { useRouter } from 'next/router';
 import { useState, useEffect } from 'react';
 import Carousel from "@/components/Carousel";
@@ -8,7 +7,6 @@ export default function App({ Component, pageProps }) {
 	const router = useRouter();
 	const [loading, setLoading] = useState(false);
 
-	// Create a loading state for page transitions
 	useEffect(() => {
 		const handleStart = () => setLoading(true);
 		const handleComplete = () => setLoading(false);
@@ -24,7 +22,7 @@ export default function App({ Component, pageProps }) {
 		};
 	}, [router]);
 
-	// Only show carousel on home page
+
 	const showCarousel = router.pathname === '/';
 
 	return (

@@ -49,7 +49,7 @@ const Index = () => {
 			<Head>
 				<title>Amit Kumar - Portfolio</title>
 				<meta name="description" content="Portfolio showcasing my work and skills as a developer" />
-				<meta name="keywords" content="web developer, portfolio, Amit Kumar, projects, skills" />
+				<meta name="keywords" content="Full Stack Developer, portfolio, Amit Kumar, projects, skills" />
 				<meta name="viewport" content="width=device-width, initial-scale=1" />
 				<link rel="icon" href="/favicon.ico" />
 

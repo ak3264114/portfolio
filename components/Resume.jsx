@@ -1,3 +1,4 @@
+import { CGPA } from "@/utils/constant";
 import React from "react";
 
 const Resume = () => {
@@ -41,7 +42,7 @@ const Resume = () => {
 				</div>
 				<div className="flex justify-between">
 					<p>B.Tech in Computer Science and Engineering (Data Science)</p>
-					<p> YGPA: 8.65</p>
+					<p> YGPA: {CGPA}</p>
 				</div>
 				<div className="flex justify-between">
 					<p>

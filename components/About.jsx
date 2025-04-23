@@ -1,4 +1,5 @@
 // components/About.jsx
+import { CGPA } from "@/utils/constant";
 import { motion } from "framer-motion";
 import { Code, Server, Database, Zap, Award, Book } from "lucide-react";
 
@@ -80,7 +81,7 @@ const About = () => {
             <div>
               <h3 className="text-blue-400">Techno Main Salt Lake</h3>
               <p className="text-sm text-gray-400">B.Tech in CSE (Data Science) • 2021-2025</p>
-              <p className="text-sm text-gray-300 mt-1">YGPA: 8.65</p>
+              <p className="text-sm text-gray-300 mt-1">CGPA: {CGPA}</p>
             </div>
             <div>
               <h3 className="text-blue-400">Vidya Bharti Chinmaya Vidyalay</h3>

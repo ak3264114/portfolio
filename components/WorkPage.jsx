@@ -1,53 +1,9 @@
 import React, { useState } from "react";
 import { motion } from "framer-motion";
 import { ExternalLink, Github, Eye, Server } from "lucide-react";
+import { projects } from "@/utils/constant";
 
-const projects = [
-  {
-    id: 1,
-    name: "Auction It",
-    description: "A real-time online app where users can list items for sale, buy items from other users, and engage in real-time auctions by placing bids for the items.",
-    imageUrl: "/AuctionItImage.png",
-    liveUrl: "https://auction-it-liard.vercel.app/",
-    frontend: "https://github.com/ak3264114/auction-it-frontend",
-    backend: "https://github.com/ak3264114/auction-it-backend",
-    tags: ["MongoDB", "Express.js", "React.js", "Node.js", "Tailwind CSS", "WebSockets"],
-    highlights: [
-      "Implemented WebSocket communication for real-time updates during auctions",
-      "Created user-friendly interfaces with React.js and Tailwind CSS",
-      "Built secure user authentication system"
-    ]
-  },
-  {
-    id: 2,
-    name: "CodeMore",
-    description: "A web app for coders to compare their performance with friends using LeetCode profiles and statistics.",
-    imageUrl: "/CodeMoreImage.png", 
-    liveUrl: "https://code-more-frontend.vercel.app/",
-    frontend: "https://github.com/ak3264114/code-more-frontend",
-    backend: "https://github.com/ak3264114/code-more-backend",
-    tags: ["MongoDB", "Express.js", "React.js", "Node.js", "Bootstrap", "GraphQL"],
-    highlights: [
-      "Implemented user authentication to ensure secure access",
-      "Integrated LeetCode GraphQL API to fetch user profile data",
-      "Designed interactive dashboards for performance comparison"
-    ]
-  },
-  {
-    id: 3,
-    name: "Open-Certs",
-    description: "An open-source contribution to a project for certifying open-source contributions during GSSOC'22.",
-    imageUrl: "/OpenCertsImage.png", 
-    liveUrl: "",
-    github: "https://github.com/open-certs/oc-frontend/commit/5c8e6b3ad370517745918bda21a240369f0d2159",
-    tags: ["React.js", "TypeScript", "Tailwind CSS", "Open Source"],
-    highlights: [
-      "Developed UI page using React TypeScript and Tailwind CSS",
-      "Designed project details display interface",
-      "Contributed to open-source community project"
-    ]
-  }
-];
+
 
 const ProjectCard = ({ project }) => {
   const [isHovered, setIsHovered] = useState(false);
