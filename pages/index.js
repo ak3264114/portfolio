@@ -1,40 +1,80 @@
+import { motion } from "framer-motion";
+import { useState, useEffect } from "react";
 import About from "@/components/About";
-import Profile from "@/components/Profile";
 import Resume from "@/components/Resume";
-import Sidebar from "@/components/Sidebar";
 import WorkPage from "@/components/WorkPage";
-import { useRouter } from "next/router";
-import React, { useEffect } from "react";
-export default function Home() {
-	const router = useRouter();
-	const { tab } = router.query;
-	useEffect(() => {
-		if (!tab) {
-			router.push("/?tab=about");
-		}
-	}, []);
+import Contact from "@/components/Contact";
+import Sidebar from "@/components/Sidebar";
+import TopNavbar from "@/components/TopNavbar";
 
-	return (
-		<div className="flex flex-col items-center  p-5 pb-14">
-			<div className="max-w-6xl w-full">
-				<div className="sm:grid grid-cols-6 gap-8 items-start">
-					<div className="rounded-xl border-2  border-[#0D0F10]  shadow-[0_0px_20px_15px] shadow-[#0D0F10]">
-						<Sidebar active={tab} />
-					</div>
-					<div className="md:col-span-5 col-span-6  flex w-full rounded-xl border-2 border-[#0D0F10]  shadow-[0_0px_20px_15px] shadow-[#0D0F10] p-16  min-h-[50vh]">
-						{!tab && <About />}
-						{tab === "about" && <About />}
-						{tab === "resume" && <Resume />}
-						{tab === "work" && <WorkPage />}
-						{/* {tab === "privacy-settings" && <Privacy />}
-				{tab === "contact-us" && <Contact />}
-				{tab === "logout" && <LogoutPage />}
-				{tab === "achievements-and-certifications" && (
-					<AchievementsAndCertifications />
-				)} */}
-					</div>
-				</div>
-			</div>
-		</div>
-	);
-}
+const Index = () => {
+  const [activeTab, setActiveTab] = useState("about");
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    const params = new URLSearchParams(window.location.search);
+    const tab = params.get("tab") || "about";
+    setActiveTab(tab);
+    
+    const checkMobile = () => {
+      setIsMobile(window.innerWidth < 768);
+    };
+    
+    checkMobile();
+    window.addEventListener("resize", checkMobile);
+    return () => window.removeEventListener("resize", checkMobile);
+  }, []);
+
+  const renderContent = () => {
+    switch (activeTab) {
+      case "about":
+        return <About />;
+      case "resume":
+        return <Resume />;
+      case "work":
+        return <WorkPage />;
+      case "contact":
+        return <Contact />;
+      default:
+        return <About />;
+    }
+  };
+
+  return (
+    <div className="min-h-screen bg-gradient-to-br from-gray-900 to-gray-800 p-4 md:p-8">
+      {isMobile && <TopNavbar active={activeTab} setActive={setActiveTab} />}
+      
+      <motion.div 
+        initial={{ opacity: 0, y: 20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.5 }}
+        className="max-w-7xl mx-auto mt-6"
+      >
+        <div className="grid md:grid-cols-[300px_1fr] gap-6">
+          {!isMobile && (
+            <motion.div 
+              initial={{ opacity: 0, x: -20 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.5, delay: 0.2 }}
+              className="bg-gray-800/80 rounded-xl border border-gray-700 shadow-xl backdrop-blur-lg"
+            >
+              <Sidebar active={activeTab} setActive={setActiveTab} />
+            </motion.div>
+          )}
+          
+          <motion.div 
+            key={activeTab}
+            initial={{ opacity: 0, x: 20 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.4 }}
+            className="bg-gray-800/80 rounded-xl border border-gray-700 shadow-xl backdrop-blur-lg p-6 md:p-8"
+          >
+            {renderContent()}
+          </motion.div>
+        </div>
+      </motion.div>
+    </div>
+  );
+};
+
+export default Index;
